@@ -17,26 +17,12 @@ const Counter = () => {
   const onDecrease = () => {
     setCount(count - 1);
   }
-
-  const [count2, setCount2] = useState(0);
-
-  const onIncrease2 = () => {
-    setCount2(count2 + 1);
-  }
-
-  const onDecrease2 = () => {
-    setCount2(count2 - 1);
-  }
   
   return (
     <div className="Counter">
       <h1>{count}</h1>
       <button onClick={onIncrease}>+</button>
       <button onClick={onDecrease}>-</button>
-
-      <h1>{count2}</h1>
-      <button onClick={onIncrease2}>+</button>
-      <button onClick={onDecrease2}>-</button>
     </div>
   );
 };
