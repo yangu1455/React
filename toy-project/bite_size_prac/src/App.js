@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Counter from './Counter';
 import MyFooter from './MyFooter';
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <MyHeader/>
       <h2>{name} 최고...</h2>
+      <b id="bold_text">overdrive 앨범 맛집</b>
       <Counter />
       <MyFooter/>
     </div>

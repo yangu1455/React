@@ -1,7 +1,27 @@
 .App {
   text-align: center;
+  background-color: rgb(20, 4, 22);
 }
 
 h2 {
   color: pink;
+}
+
+#bold_text {
+  color: blueviolet;
+}
+
+header {
+  padding: 10px 0;
+  background-color: whitesmoke;
+}
+
+footer {
+  padding: 10px 0;
+  background-color: whitesmoke;
+}
+
+.Counter {
+  padding: 10px 0;
+  color: white;
 }
