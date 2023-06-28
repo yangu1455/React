@@ -19,6 +19,15 @@ function App() {
 
   const number = 5;
 
+  const counterProps = {
+    a:1,
+    b:2,
+    c:3,
+    d:4,
+    e:5,
+    initialValue:5,
+  }
+
   return (
     <div className="App">
       <MyHeader/>
@@ -28,7 +37,7 @@ function App() {
       <b style={im_style.im_text} id="bold_text">
         {number}는? {number % 2 === 0 ? '짝수' : '홀수'}
       </b>
-      <Counter />
+      <Counter {...counterProps}/>
       <MyFooter/>
     </div>
   );
