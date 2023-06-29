@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import OddEvenResult from "./OddEvenResult";
 
 // 이렇게 비구조화 할당을 통해서 
 // 이쪽 매개변수로 전달되는 props라는 객체에서 initialValue라는 값만 꺼내서 쓴 것!
@@ -7,8 +8,6 @@ const Counter = ({ initialValue }) => {
   // 1씩 증가하고
   // 1씩 감소하는
   // count 상태
-
-  console.log(initialValue);
 
   const [count, setCount] = useState(initialValue);
 
@@ -25,6 +24,7 @@ const Counter = ({ initialValue }) => {
       <h1>{count}</h1>
       <button onClick={onIncrease}>+</button>
       <button onClick={onDecrease}>-</button>
+      <OddEvenResult count={count}/>
     </div>
   );
 };
