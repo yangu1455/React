@@ -5,20 +5,7 @@
 import PropTypes from 'prop-types';  
 import './MyButton.css';
 
-// function SomeFunc() {
-//   try {
-//     someHello()
-//   } catch (e) {
-//     // 내가 잠을 자고 있을 때 에러가 발생하면 TypeScript는 그것을 우리에 알려줄 수 있을까?
-//     // 컴파일하면 TS 코드는 날라가기때문에.. 체크 못해줍니다.
-//     // Zod, Yup, Joi, Superstruct, io-ts, tcomb, ajv 등의 라이브러리를 사용해야하고
-//     // Sentry 같은 에러 트래킹 서비스를 사용해야합니다.
-//   } finally {
-//     LogEvent()
-//   }
-// }
-
-const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+const Button = ({ primary, backgroundColor, radius, size, label, ...props }) => {
   const mode = primary 
     ? 'storybook-button--primary' 
     : 'storybook-button--secondary';
@@ -26,8 +13,11 @@ const Button = ({ primary, backgroundColor, size, label, ...props }) => {
     <button
       type="button"
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
+      style={
+        (backgroundColor && { backgroundColor },
+        radius ? { borderRadius: radius + 'px' } : { borderRadius : 0})
+      }
+      {...props} // JS 문법에서 나머지 매개변수를 의미함. <Button a, b, c, d, e /> (Rest Parameters)
     >
       {label}
     </button>
@@ -39,6 +29,7 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   label: PropTypes.string.isRequired,
+  radius: PropTypes.string,
   onClick: PropTypes.func,
 };
 
@@ -46,6 +37,7 @@ Button.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: 'medium',
+  radius: null,
   onClick: undefined,
 };
 
