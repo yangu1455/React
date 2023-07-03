@@ -15,7 +15,7 @@ const Button = ({ primary, backgroundColor, radius, size, label, ...props }) => 
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={
         (backgroundColor && { backgroundColor },
-        radius ? { borderRadius: radius + 'px' } : { borderRadius : 0})
+        radius ? { borderRadius: radius + 'px' } : { borderRadius : 0 })
       }
       {...props} // JS 문법에서 나머지 매개변수를 의미함. <Button a, b, c, d, e /> (Rest Parameters)
     >
