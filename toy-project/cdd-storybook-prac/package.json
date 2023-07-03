@@ -2,8 +2,10 @@
   "name": "cdd-storybook-prac",
   "version": "1.0.0",
   "description": "",
+  "type": "module", 
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -25,6 +27,7 @@
     "storybook": "^7.0.24"
   },
   "dependencies": {
+    "rollup": "^3.26.0",
     "styled-components": "^6.0.2"
   }
 }
