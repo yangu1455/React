@@ -11,7 +11,7 @@
     "build-storybook": "storybook build"
   },
   "keywords": [],
-  "author": "",
+  "author": "yangu1455",
   "license": "ISC",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.24",

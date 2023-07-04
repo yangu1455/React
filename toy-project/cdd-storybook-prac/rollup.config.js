@@ -1,8 +1,5 @@
-// ESModule aka ESM
 import esbuild from 'rollup-plugin-esbuild';
-
-// CommonJS aka CJS
-const esbuild2 = require('rollup-plugin-esbuild')
+import PeerExternal from 'rollup-plugin-peer-deps-external';
 
 // rollup.config.js
 export default {
@@ -17,5 +14,6 @@ export default {
       minify: process.env.NODE_ENV === 'production',
       jsx: 'automatic',
     }),
+    PeerExternal(),
   ],
 };
