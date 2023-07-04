@@ -2,17 +2,23 @@
   "name": "cdd-storybook-prac",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "main": "index.js",
+  "author": "yangu1455",
+  "license": "ISC",
+  "keywords": [],
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "yangu1455",
-  "license": "ISC",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.24",
     "@storybook/addon-interactions": "^7.0.24",
