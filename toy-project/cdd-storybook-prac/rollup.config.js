@@ -1,17 +1,17 @@
 import esbuild from 'rollup-plugin-esbuild';
-import PeerExternal from 'rollup-plugin-peer-deps-external';
-import pkg from './package.json';
+// import PeerExternal from 'rollup-plugin-peer-deps-external';
+import pkg from './package.json' assert { type : 'json' };
 
 // rollup.config.js
 export default {
 	input: 'src/index.js',
 	output: [
     {
-      file: 'bundle.js',
+      file: pkg.exports['.'].import,
       format: 'esm'
     },
     {
-      file: 'bundle.js',
+      file: pkg.exports['.'].require,
       format: 'cjs'
     },
   ],
@@ -21,6 +21,11 @@ export default {
       minify: process.env.NODE_ENV === 'production',
       jsx: 'automatic',
     }),
-    PeerExternal(),
+    // PeerExternal(),
   ],
+  external: [
+    'react',
+    'react-dom',
+    'styled-components',
+  ]
 };
