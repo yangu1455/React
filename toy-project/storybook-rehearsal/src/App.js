@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { Button } from "cdd-storybook-prac";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Button label='안녕하세요' color="#000" backgroundColor="#FFF"/>
         <a
           className="App-link"
           href="https://reactjs.org"
