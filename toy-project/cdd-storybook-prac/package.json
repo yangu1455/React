@@ -6,10 +6,11 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -rf dist && rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepack": "npm run build"
   },
   "main": "dist/esm/index.js",
   "type": "module",
