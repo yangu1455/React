@@ -2,8 +2,8 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import Button from "./components/Button.jsx";
 import ButtonGroup from "./components/ButtonGroup.jsx";
+import { Button } from "cdd-storybook-prac";
 
 function App() {
   return (
@@ -18,8 +18,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <ButtonGroup>
-        <Button />
-        <Button />
+        <Button label="안녕하세요!"/>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
