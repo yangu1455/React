@@ -26,7 +26,6 @@
     "@storybook/addon-links": "^7.0.24",
     "@storybook/blocks": "^7.0.24",
     "@storybook/react": "^7.0.24",
-    "@storybook/react-vite": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -34,6 +33,7 @@
     "storybook": "^7.0.24"
   },
   "dependencies": {
+    "@storybook/react-webpack5": "^7.0.27",
     "esbuild": "^0.18.11",
     "rollup": "^3.26.0",
     "rollup-plugin-esbuild": "^5.0.0",
