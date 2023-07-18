@@ -2,6 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
+// 더미데이터 생성
+const User = {
+  email: 'test@hanmail.net',
+  pw: 'test0323@@'
+}
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState("");
@@ -29,6 +35,14 @@ export default function Login() {
       setPwValid(true);
     } else {
       setPwValid(false);
+    }
+  }
+
+  const onClickConfirmButton = () => {
+    if(email === User.email && pw === User.pw) {
+      alert('로그인에 성공했습니다.');
+    } else {
+      alert('등록되지 않은 회원입니다.');
     }
   }
 
@@ -87,7 +101,7 @@ export default function Login() {
       </div>
 
       <div>
-        <button disabled={notAllow} className="bottomButton">
+        <button onClick={onClickConfirmButton} disabled={notAllow} className="bottomButton">
           확인
         </button>
       </div>
