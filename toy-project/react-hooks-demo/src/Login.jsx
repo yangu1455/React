@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Login() {
@@ -7,6 +8,7 @@ export default function Login() {
 
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
+  const [notAllow, setNotAllow] = useState(true);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -29,6 +31,14 @@ export default function Login() {
       setPwValid(false);
     }
   }
+
+  useEffect(() => {
+    if(emailValid && pwValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  },[emailValid, pwValid]);
 
   return (
     <div className='page'>
@@ -77,7 +87,7 @@ export default function Login() {
       </div>
 
       <div>
-        <button disabled={true} className="bottomButton">
+        <button disabled={notAllow} className="bottomButton">
           확인
         </button>
       </div>
