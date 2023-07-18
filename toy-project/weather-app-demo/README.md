@@ -10,3 +10,4 @@ API 연동을 위해 Axios 라이브러리를 사용했습니다.
 <br>
 
 [OpenWeatherMap API](https://openweathermap.org/)
+[React JS 날씨 앱 만들기 - OpenWeatherMap API](https://youtu.be/VfB81IcUbmI)
