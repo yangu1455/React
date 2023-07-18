@@ -30,7 +30,7 @@ function App() {
     <AppWrap>
       <div className = 'appContentWrap'>
         <input
-          placeholder ='도시를 입력하세요'
+          placeholder ='도시를 영어로 입력하세요'
           value = {location}
           onChange={(e)=>setLocation(e.target.value)}
           type='text'
@@ -40,7 +40,9 @@ function App() {
           Object.keys(result).length !== 0 && (
             <ResultWrap>
             <div className="city">{result.data.name}</div>
-            <div className="temperature">{result.data.main.temp}</div>
+            <div className="temperature">
+              {Math.round(((result.data.main.temp -273.15) * 10)) / 10} °C
+            </div>
             <div className="sky">{result.data.weather[0].main}</div>
             </ResultWrap>
           )
