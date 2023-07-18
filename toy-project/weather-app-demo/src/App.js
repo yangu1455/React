@@ -29,6 +29,7 @@ function App() {
   return (
     <AppWrap>
       <div className = 'appContentWrap'>
+        <div className = 'title'>☀️ React JS 날씨 앱 만들기 🌨️</div>
         <input
           placeholder ='도시를 영어로 입력하세요'
           value = {location}
@@ -39,11 +40,11 @@ function App() {
         {
           Object.keys(result).length !== 0 && (
             <ResultWrap>
-            <div className="city">{result.data.name}</div>
-            <div className="temperature">
-              {Math.round(((result.data.main.temp -273.15) * 10)) / 10} °C
-            </div>
-            <div className="sky">{result.data.weather[0].main}</div>
+              <div className="city">{result.data.name}</div>
+              <div className="temperature">
+                {Math.round(((result.data.main.temp -273.15) * 10)) / 10}°C
+              </div>
+              <div className="sky">{result.data.weather[0].main}</div>
             </ResultWrap>
           )
         }
@@ -55,8 +56,17 @@ function App() {
 export default App;
 
 const AppWrap = styled.div`
+  @font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  font-family: 'Dovemayo_gothic';
   width: 100vw;
   height: 100vh;
+  text-align: center;
 
   .appContentWrap {
     left: 50%;
@@ -65,19 +75,30 @@ const AppWrap = styled.div`
     position: absolute;
     padding: 20px;
   }
+
+  .title {
+    font-size: 20px;
+    font-family: 'Dovemayo_gothic';
+    padding: 20px 0;
+    color: dodgerblue;
+
+  }
+
   input {
-    padding: 16px;
-    border: 2px black solid;
+    padding: 13px;
+    border: 2px deepskyblue solid;
     border-radius: 16px;
+    font-family: 'Dovemayo_gothic';
+    font-size: 18px;
   }
 `;
 
 
 const ResultWrap = styled.div`
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 10px;
-  border: 1px black solid;
-  border-radius: 8px;
+  // border: 1px dodgerblue solid;
+  // border-radius: 8px;
   .city {
     font-size: 24px;
   }
