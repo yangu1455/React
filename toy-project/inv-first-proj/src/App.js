@@ -1,6 +1,7 @@
 import React from "react";
 import ProductPage from "./pages/ProductPage";
 import Counter from "./components/Counter";
+import List from "./components/List";
 import { useState } from "react";
 
 
@@ -27,34 +28,36 @@ function App() {
   //   </div>
   // );
 
-  // number
-  const [num, setNum] = useState(0);
+  // // number
+  // const [num, setNum] = useState(0);
 
-  // string
-  const [name, setName] = useState('');
+  // // string
+  // const [name, setName] = useState('');
 
-  // boolean
-  const [IsChecked, setIsChecked] = useState(false);
+  // // boolean
+  // const [IsChecked, setIsChecked] = useState(false);
 
   return (
-    <div>
-      <input
-        type="number"
-        value={num}
-        onChange={(e) => setNum(e.target.value)}  
-      />
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)} 
-      />
-      <input
-        type="checkbox"
-        value={IsChecked}
-        onChange={(e) => setIsChecked(e.target.checked)} 
-      />
-      {IsChecked ? <span>체크됨</span> : <span>체크안됨</span>}
-    </div>
+    // <div>
+    //   <input
+    //     type="number"
+    //     value={num}
+    //     onChange={(e) => setNum(e.target.value)}  
+    //   />
+    //   <input
+    //     type="text"
+    //     value={name}
+    //     onChange={(e) => setName(e.target.value)} 
+    //   />
+    //   <input
+    //     type="checkbox"
+    //     value={IsChecked}
+    //     onChange={(e) => setIsChecked(e.target.checked)} 
+    //   />
+    //   {IsChecked ? <span>체크됨</span> : <span>체크안됨</span>}
+    // </div>
+
+    <List/>
   )
 }
 
