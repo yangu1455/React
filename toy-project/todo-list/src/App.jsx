@@ -40,7 +40,10 @@ function App() {
     setList([])
   }
 
-  
+  const removeItem = (id) => {
+    showAlert(true, '할 일이 삭제되었습니다', 'danger')
+    setList(list.filter((item) => item.id !== id))
+  }
 
   return (
     <section className='section-center'>
@@ -56,7 +59,7 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-          <List items={list} />
+          <List items={list} removeItem={removeItem}/>
           <button className='clear-btn' onClick={clearList}>전부 삭제</button>
         </div>
       )}
