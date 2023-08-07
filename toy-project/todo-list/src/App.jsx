@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import List from "./List";
+import Alert from "./Alert";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 품목 이름
+  const [name, setName] = useState('');
+  // 품목 list
+  const [list, setList] = useState([]);
+  // 수정 상태인지 아닌지
+  const [isEditing, setIsEditing] = useState(false);
+  const [editID, setEditID] = useState(null);
+  const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('hello')
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <section className='section-center'>
+      <form className='grocery-form' onSubmit={handleSubmit}>
+        {alert.show && <Alert/>}
+        <h3>grocery bud</h3>
+        <div className='form-control'>
+          <input type='text' className='grocery' placeholder='e.g. eggs' value={name} onChange={(e) => setName(e.target.value)}/>
+          <button type='submit' className='submit-btn'>
+            {isEditing ? 'edit' : 'submit'}
+          </button>
+        </div>
+      </form>
+      <div className="grocery-container">
+        <List/>
+        <button className='clear-btn'>clear items</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </section>
   )
 }
 
