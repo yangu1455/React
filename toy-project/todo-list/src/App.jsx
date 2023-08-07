@@ -14,16 +14,17 @@ function App() {
   const [alert, setAlert] = useState({ show: false, msg: '', type: '', });
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(!name){
+    if (!name){
       // display alert
       showAlert(true, '할 일을 입력해주세요', 'danger')
     }
-    else if(name && isEditing){
+    else if (name && isEditing){
       // deal with edit
 
     }
-    else{
+    else {
       // show alert
+      showAlert(true, '할 일이 추가되었습니다!', 'success')
       const newItem = { id: new Date().getTime().toString(), title:name };
       setList([...list, newItem]);
       setName('')
@@ -33,6 +34,13 @@ function App() {
   const showAlert = (show=false, msg='', type='') => {
     setAlert({show, msg, type})
   }
+
+  const clearList = () => {
+    showAlert(true, '전부 삭제되었습니다', 'danger')
+    setList([])
+  }
+
+  
 
   return (
     <section className='section-center'>
@@ -49,7 +57,7 @@ function App() {
       {list.length > 0 && (
         <div className="grocery-container">
           <List items={list} />
-          <button className='clear-btn'>clear items</button>
+          <button className='clear-btn' onClick={clearList}>전부 삭제</button>
         </div>
       )}
     </section>
