@@ -11,12 +11,12 @@ function App() {
   // 수정 상태인지 아닌지
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+  const [alert, setAlert] = useState({ show: false, msg: '', type: '', });
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!name){
       // display alert
-  
+      showAlert(true, '할 일을 입력해주세요', 'danger')
     }
     else if(name && isEditing){
       // deal with edit
@@ -29,17 +29,20 @@ function App() {
       setName('')
     }
   }
-
+  
+  const showAlert = (show=false, msg='', type='') => {
+    setAlert({show, msg, type})
+  }
 
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert/>}
-        <h3>grocery bud</h3>
+        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+        <h3>To Do List</h3>
         <div className='form-control'>
-          <input type='text' className='grocery' placeholder='e.g. eggs' value={name} onChange={(e) => setName(e.target.value)}/>
+          <input type='text' className='grocery' placeholder='인프런 13강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
           <button type='submit' className='submit-btn'>
-            {isEditing ? 'edit' : 'submit'}
+            {isEditing ? '수정' : '추가'}
           </button>
         </div>
       </form>
