@@ -4,16 +4,18 @@ import { SiNotion } from "react-icons/si";
 import { links, social } from "./data";
 // import logo from './logo'
 
-export default function Navbar() {
+const Navbar = () => {
+  const [showLinks, setShowLinks] = useState(false);
+
   return (
     <nav>
       <div className="nav-center">
         <div className="nav-header">
-          <button className='nav-toggle'>
+          <button className='nav-toggle' onClick={() => setShowLinks(!showLinks)}>
             <FaBars/>
           </button>
         </div>
-        <div className="links-container show-container">
+        <div className={`${showLinks ? "links-container show-container" : "links-container"}`}>
           <ul className="links">
             {links.map((link) => {
               const { id, url, text, content } = link;
@@ -44,4 +46,4 @@ export default function Navbar() {
   )
 }
 
-
+export default Navbar;

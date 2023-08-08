@@ -11,12 +11,12 @@ export const links = [
   {
     id: 2,
     url: '/study-rules',
-    text: '스터디 규칙',
+    text: '스터디규칙',
   },
   {
     id: 3,
     url: '/member',
-    text: '멤버 소개',
+    text: '멤버소개',
   },
   {
     id: 4,

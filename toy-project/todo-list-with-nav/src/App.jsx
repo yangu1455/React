@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import List from "./List";
 import Alert from "./Alert";
 import Navbar from './Navbar';
-import Sidebar from "./Sidebar";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem('list');
@@ -81,7 +80,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <Sidebar />
       <section className='section-center'>
         <form className='grocery-form' onSubmit={handleSubmit}>
           {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
