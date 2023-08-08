@@ -20,7 +20,18 @@ function App() {
     }
     else if (name && isEditing){
       // deal with edit
-
+      setList(
+        list.map((item) => {
+          if(item.id === editID) {
+            return { ...item, title: name }
+          }
+          return item
+        })
+      )
+      setName('');
+      setEditID(null);
+      setIsEditing(false);
+      showAlert(true, '할 일이 수정되었습니다', 'success')
     }
     else {
       // show alert
@@ -45,10 +56,17 @@ function App() {
     setList(list.filter((item) => item.id !== id))
   }
 
+  const editItem = (id) => {
+    const specificItem = list.find((item) => item.id === id);
+    setIsEditing(true);
+    setEditID(id)
+    setName(specificItem.title)
+  }
+
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
         <h3>To Do List</h3>
         <div className='form-control'>
           <input type='text' className='grocery' placeholder='인프런 13강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
@@ -59,7 +77,7 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-          <List items={list} removeItem={removeItem}/>
+          <List items={list} removeItem={removeItem} editItem={editItem}/>
           <button className='clear-btn' onClick={clearList}>전부 삭제</button>
         </div>
       )}
