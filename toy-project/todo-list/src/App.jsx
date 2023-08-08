@@ -3,6 +3,16 @@ import List from "./List";
 import Alert from "./Alert";
 import './App.css'
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list');
+  if (list){
+    return JSON.parse(localStorage.getItem('list'));
+  }
+  else {
+    return []
+  }
+}
+
 function App() {
   // 품목 이름
   const [name, setName] = useState('');
@@ -15,11 +25,11 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!name){
-      // display alert
+      // display alert (값이 입력되지 않았을 때)
       showAlert(true, '할 일을 입력해주세요', 'danger')
     }
     else if (name && isEditing){
-      // deal with edit
+      // deal with edit (수정~~)
       setList(
         list.map((item) => {
           if(item.id === editID) {
@@ -34,7 +44,7 @@ function App() {
       showAlert(true, '할 일이 수정되었습니다', 'success')
     }
     else {
-      // show alert
+      // show alert (입력된 값이 있을 때)
       showAlert(true, '할 일이 추가되었습니다!', 'success')
       const newItem = { id: new Date().getTime().toString(), title:name };
       setList([...list, newItem]);
@@ -62,6 +72,10 @@ function App() {
     setEditID(id)
     setName(specificItem.title)
   }
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list))
+  }, [list])
 
   return (
     <section className='section-center'>
