@@ -17,7 +17,7 @@ function App() {
   // 품목 이름
   const [name, setName] = useState('');
   // 품목 list
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   // 수정 상태인지 아닌지
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
@@ -92,7 +92,7 @@ function App() {
       {list.length > 0 && (
         <div className="grocery-container">
           <List items={list} removeItem={removeItem} editItem={editItem}/>
-          <button className='clear-btn' onClick={clearList}>전부 삭제</button>
+          <button className='clear-btn' onClick={clearList}>전체 삭제</button>
         </div>
       )}
     </section>
