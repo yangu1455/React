@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import List from "./List";
 import Alert from "./Alert";
-import './App.css'
+import Navbar from './Navbar';
+import Sidebar from "./Sidebar";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem('list');
@@ -78,24 +79,28 @@ function App() {
   }, [list])
 
   return (
-    <section className='section-center'>
-      <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
-        <h3>To Do List</h3>
-        <div className='form-control'>
-          <input type='text' className='grocery' placeholder='ex. 웹 디벨로퍼 13, 14강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
-          <button type='submit' className='submit-btn'>
-            {isEditing ? '수정' : '추가'}
-          </button>
-        </div>
-      </form>
-      {list.length > 0 && (
-        <div className="grocery-container">
-          <List items={list} removeItem={removeItem} editItem={editItem}/>
-          <button className='clear-btn' onClick={clearList}>전체 삭제</button>
-        </div>
-      )}
-    </section>
+    <>
+      <Navbar />
+      <Sidebar />
+      <section className='section-center'>
+        <form className='grocery-form' onSubmit={handleSubmit}>
+          {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
+          <h3>To Do List</h3>
+          <div className='form-control'>
+            <input type='text' className='grocery' placeholder='ex. 웹 디벨로퍼 13, 14강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
+            <button type='submit' className='submit-btn'>
+              {isEditing ? '수정' : '추가'}
+            </button>
+          </div>
+        </form>
+        {list.length > 0 && (
+          <div className="grocery-container">
+            <List items={list} removeItem={removeItem} editItem={editItem}/>
+            <button className='clear-btn' onClick={clearList}>전체 삭제</button>
+          </div>
+        )}
+      </section>
+    </>
   )
 }
 
