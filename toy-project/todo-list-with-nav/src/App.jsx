@@ -83,7 +83,7 @@ function App() {
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
         <h3>To Do List</h3>
         <div className='form-control'>
-          <input type='text' className='grocery' placeholder='인프런 13강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
+          <input type='text' className='grocery' placeholder='ex. 웹 디벨로퍼 13, 14강 다시 듣기' value={name} onChange={(e) => setName(e.target.value)}/>
           <button type='submit' className='submit-btn'>
             {isEditing ? '수정' : '추가'}
           </button>
