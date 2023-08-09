@@ -1,20 +1,23 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import Menu from './Menu';
+import Categories from './Categories';
+import items from './data';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [menuItems, setMenuItems] = useState(items);
+  const [categories, setCategories] = useState([]);
 
   return (
     <>
-      <h1>Menu && Tabs</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
+      <section className="menu section">
+        <div className="title">
+          <h2>our menu</h2>
+          <div className="underline"></div>
+        </div>
+        <Categories/>
+        <Menu/>
+      </section>
     </>
   )
 }
