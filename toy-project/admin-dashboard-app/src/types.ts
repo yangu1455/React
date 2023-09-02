@@ -14,3 +14,11 @@ export interface navbtnProps {
   color: string,
   dotColor?: string
 }
+
+export interface buttonProps {
+  bgColor: string, 
+  color: string, 
+  size: string, 
+  text: string, 
+  borderRadius: string
+}
